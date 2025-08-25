@@ -43,14 +43,14 @@ const carouselImages = [
 ];
 
 const projectCards = [
-  { media: project1, title: "Build Your Own Bundle", desc: "Description for project one." },
-  { media: project2, title: "Custom Collection Pages", desc: "Description for project two." },
-  { media: project3, title: "Build Your Meal Box", desc: "Description for project three." },
-  { media: project4, title: "Choose your steps", desc: "Description for project four." },
-  { media: project5, title: "Coffee subscriptions", desc: "Description for project five." },
-  { media: project6, title: "Customer Portal", desc: "Description for project six." },
-  { media: project7, title: "Supplements Sale", desc: "Description for project seven." },
-  { media: project8, title: "Custom offers", desc: "Description for project eight." },
+  { media: project1, title: "Build Your Own Bundle", desc: "Raw meat brand" },
+  { media: project2, title: "Custom Collection Pages", desc: "Candy and snacks brand" },
+  { media: project3, title: "Build Your Meal Box", desc: "Weekly Meal Menu brand" },
+  { media: project4, title: "Choose your steps", desc: "Beauty and Cosmetics brand" },
+  { media: project5, title: "Coffee subscriptions", desc: "Coffee Machine + Coffee brand" },
+  { media: project6, title: "Customer Portal", desc: "Health and Supplements brand" },
+  { media: project7, title: "Supplements Sale", desc: "Protien flavour Bundle" },
+  { media: project8, title: "Custom offers", desc: "Self Care brand" },
 ];
 
 export default function Projects() {
