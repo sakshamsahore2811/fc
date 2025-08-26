@@ -23,14 +23,23 @@ export default function App() {
       {/* Starry Background */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-60 brightness-125"></div>
 
-      {/* Navbar */}
-      <nav className="relative z-10 flex justify-between items-center px-8 py-6 bg-black/70 backdrop-blur-sm">
-      <Link to="/"><div className="text-2xl font-bold flex items-center"><img src={icon} width={50}/>Forge Commerce </div></Link>
-<div className="text-md font-thin flex items-center gap-2"><div><img src={gem} width={25}/></div><div>Built for</div><div><img src={shopify} width={60}/></div></div>
+          {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 bg-black/70 backdrop-blur-sm">
+        <Link to="/">
+          <div className="text-2xl font-bold flex items-center">
+            <img src={icon} width={50} />
+            Forge Commerce
+          </div>
+        </Link>
+        <div className="text-md font-thin flex items-center gap-2">
+          <div><img src={gem} width={25} /></div>
+          <div>Built for</div>
+          <div><img src={shopify} width={60} /></div>
+        </div>
         <ul className="flex space-x-8 font-medium">
-          <li><Link to="/projects"><a className="hover:text-gray-400">Projects</a></Link></li>
-          <li><Link to="/pricing"><a className="hover:text-gray-400">Pricing</a></Link></li>
-          <li><Link to="/about"><a href="#about" className="hover:text-gray-400">About</a></Link></li>
+          <li><Link to="/projects" className="hover:text-gray-400">Projects</Link></li>
+          <li><Link to="/pricing" className="hover:text-gray-400">Pricing</Link></li>
+          <li><Link to="/about" className="hover:text-gray-400">About</Link></li>
           <li><a href="https://www.linkedin.com/company/108402090" target="_blank" className="hover:text-gray-400">Careers</a></li>
         </ul>
       </nav>
