@@ -30,8 +30,6 @@ export default function Pricing() {
     setEstimate(count * 100);
   };
 
-  // contact form (similar to MerchantContactForm.tsx)
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   return (
     <div className="min-h-screen bg-black text-white relative font-[Montserrat]">
@@ -126,3 +124,4 @@ export default function Pricing() {
     </div>
   );
 }
+
