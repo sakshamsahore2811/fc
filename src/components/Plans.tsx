@@ -1,78 +1,128 @@
-import React from "react";
+import { useState } from "react";
+import Plans from "../components/Plans";
+import Footer from "../components/Footer";
+import BookConsultation from "../components/BookConsultation";
+import ComparisonTable from "../components/ComparisonTable";
+import icon from "../assets/logo.png";
+import gem from "../assets/gem.png";
+import shopify from "../assets/shopify.png";
+import { Link } from "react-router-dom";
+import MerchantContactForm from "../components/MerchantContactForm";
 
-const plans = [
-  {
-    title: "Subscriptions PRO",
-    price: "$300",
-    features: [
-      "Set up subscriptions model",
-      "Implement custom widget",
-      "Design & implement bundles",
-      "Create custom customer portal",
-      "Set up growth plan for subscription",
-    ],
-    button: "Get Started",
-  },
-  {
-    title: "Store Growth",
-    price: "$600",
-    features: [
-      "Everything in Subscriptions PRO plan",
-      "Overall store design revamp",
-      "Custom app integrations",
-      "End-to-end functionality",
-    ],
-    button: "Get Started",
-  },
-  {
-    title: "Custom Task ?",
-    price: "Custom",
-    features: ["Discuss a custom pricing with us",
-"Custom development tasks",
-"Tweaks/revamp for existing stores"
-    ],
-    button: "Contact Us",
-  },
+type Feature = { id: string; label: string };
+
+const FEATURES: Feature[] = [
+  { id: "rebrand", label: "Store rebranding or launch" },
+  { id: "subs-design", label: "Subscriptions design" },
+  { id: "bundles", label: "Bundles" },
+  { id: "portal", label: "Customer Portal" },
+  { id: "upsells", label: "Upsells" },
+  { id: "subs-setup", label: "Subscriptions App setup optimisation" },
 ];
 
-const Plans: React.FC = () => {
+export default function Pricing() {
+  const [selected, setSelected] = useState<Record<string, boolean>>({});
+  const [estimate, setEstimate] = useState<number | null>(null);
+
+  const toggle = (id: string) => setSelected(s => ({ ...s, [id]: !s[id] }));
+  const calculate = () => {
+    const count = Object.values(selected).filter(Boolean).length;
+    setEstimate(count * 100);
+  };
+
+  // contact form (similar to MerchantContactForm.tsx)
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
   return (
-    <div className="w-full py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2  className="text-4xl text-center md:text-4xl font-bold mb-4 text-white
-              [text-shadow:0_0_10px_rgba(168,85,247,1),0_0_20px_rgba(168,85,247,1),0_0_40px_rgba(168,85,247,0.8),0_0_60px_rgba(168,85,247,0.6)]"
-          >Our Plans</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className=" shadow-lg rounded-2xl bg-gray-800/75 p-6 flex flex-col hover:shadow-xl transition"
+    <div className="min-h-screen bg-black text-white relative font-[Montserrat]">
+      {/* Starry Background (same as index.jsx) — now non-interactive */}
+      <div className="pointer-events-none absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-60 brightness-125"></div>
+
+               {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 bg-black/70 backdrop-blur-sm">
+        <Link to="/">
+          <div className="text-2xl font-bold flex items-center">
+            <img src={icon} width={50} />
+            Forge Commerce
+          </div>
+        </Link>
+        <div className="text-md font-thin flex items-center gap-2">
+          <div><img src={gem} width={25} /></div>
+          <div>Built for</div>
+          <div><img src={shopify} width={60} /></div>
+        </div>
+        <ul className="flex space-x-8 font-medium">
+          <li><Link to="/projects" className="hover:text-gray-400">Projects</Link></li>
+          <li><Link to="/pricing" className="hover:text-gray-400">Pricing</Link></li>
+          <li><Link to="/about" className="hover:text-gray-400">About</Link></li>
+          <li><a href="https://www.linkedin.com/company/108402090" target="_blank" className="hover:text-gray-400">Careers</a></li>
+        </ul>
+      </nav>
+
+
+      {/* Content */}
+      <main className="relative z-10 max-w-3xl mx-auto px-6 py-12">
+        <section>
+          <Plans/>
+        </section>
+        <h1  className="text-4xl text-center md:text-4xl font-bold mb-4 text-white
+  [text-shadow:0_0_10px_rgba(168,85,247,1),0_0_20px_rgba(168,85,247,1),0_0_40px_rgba(168,85,247,0.8),0_0_60px_rgba(168,85,247,0.6)]"
+>Cost Estimate</h1>
+
+        {/* Feature checkboxes */}
+        <div className="space-y-3">
+          {FEATURES.map(f => (
+            <label
+              key={f.id}
+              className="flex items-center gap-3 cursor-pointer border border-white/30 p-3 rounded-xl bg-transparent hover:bg-white/5 transition"
             >
-              <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-              <p className="text-2xl font-bold text-blue-300 mb-4">
-                {plan.title=="Subscriptions PRO" && <><s>$400{" "}</s></>}
-                {plan.title=="Store Growth" && <><s>$700{" "}</s></>}
-                {plan.price}
-              </p>
-              <ul className="space-y-2 flex-1">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-white">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full mr-2 text-md"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-6 w-full bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700 transition">
-                <a href="#contact">
-                {plan.button}
-                </a>
-              </button>
-            </div>
+              <input
+                type="checkbox"
+                checked={!!selected[f.id]}
+                onChange={() => toggle(f.id)}
+                className="w-5 h-5 accent-purple-500 cursor-pointer"
+              />
+              <span className="select-none">{f.label}</span>
+            </label>
           ))}
         </div>
-      </div>
+
+        {/* Calculate */}
+        <button
+          type="button"
+          onClick={calculate}
+          className="mt-6 w-full py-3 rounded-lg border border-white text-white transition duration-300
+                     hover:text-purple-400 hover:border-purple-400"
+        >
+          Calculate
+        </button>
+
+        {/* Estimate */}
+        {estimate !== null && (
+          <div className="mt-4 text-center" aria-live="polite">
+            <div className="text-2xl font-semibold text-purple-400">
+              Estimated Cost: ${estimate} <br/>
+              Estimated Timeline : 4-6 weeks
+            </div>
+          </div>
+        )}
+
+        <section>
+          <ComparisonTable/>
+        </section>
+
+        {/* Contact form */}
+        <section id="contact" className="mt-12">
+        <MerchantContactForm/>
+        </section>
+      </main>
+      <section>
+        <BookConsultation/>
+      </section>
+      <br/>
+      <section>
+        <Footer/>
+      </section>
     </div>
   );
-};
-
-export default Plans;
+}
