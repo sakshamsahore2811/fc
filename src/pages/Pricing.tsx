@@ -64,7 +64,7 @@ export default function Pricing() {
         <section>
           <Plans/>
         </section>
-        <h1  className="text-4xl text-center md:text-4xl font-bold mb-4 text-white
+{/*         <h1  className="text-4xl text-center md:text-4xl font-bold mb-4 text-white
   [text-shadow:0_0_10px_rgba(168,85,247,1),0_0_20px_rgba(168,85,247,1),0_0_40px_rgba(168,85,247,0.8),0_0_60px_rgba(168,85,247,0.6)]"
 >Cost Estimate</h1>
 
@@ -105,7 +105,7 @@ export default function Pricing() {
             </div>
           </div>
         )}
-
+ */}
         <section>
           <ComparisonTable/>
         </section>
