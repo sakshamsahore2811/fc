@@ -64,48 +64,7 @@ export default function Pricing() {
         <section>
           <Plans/>
         </section>
-{/*         <h1  className="text-4xl text-center md:text-4xl font-bold mb-4 text-white
-  [text-shadow:0_0_10px_rgba(168,85,247,1),0_0_20px_rgba(168,85,247,1),0_0_40px_rgba(168,85,247,0.8),0_0_60px_rgba(168,85,247,0.6)]"
->Cost Estimate</h1>
 
-        {/* Feature checkboxes */}
-        <div className="space-y-3">
-          {FEATURES.map(f => (
-            <label
-              key={f.id}
-              className="flex items-center gap-3 cursor-pointer border border-white/30 p-3 rounded-xl bg-transparent hover:bg-white/5 transition"
-            >
-              <input
-                type="checkbox"
-                checked={!!selected[f.id]}
-                onChange={() => toggle(f.id)}
-                className="w-5 h-5 accent-purple-500 cursor-pointer"
-              />
-              <span className="select-none">{f.label}</span>
-            </label>
-          ))}
-        </div>
-
-        {/* Calculate */}
-        <button
-          type="button"
-          onClick={calculate}
-          className="mt-6 w-full py-3 rounded-lg border border-white text-white transition duration-300
-                     hover:text-purple-400 hover:border-purple-400"
-        >
-          Calculate
-        </button>
-
-        {/* Estimate */}
-        {estimate !== null && (
-          <div className="mt-4 text-center" aria-live="polite">
-            <div className="text-2xl font-semibold text-purple-400">
-              Estimated Cost: ${estimate} <br/>
-              Estimated Timeline : 4-6 weeks
-            </div>
-          </div>
-        )}
- */}
         <section>
           <ComparisonTable/>
         </section>
