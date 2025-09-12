@@ -8,26 +8,9 @@ import gem from "../assets/gem.png";
 import shopify from "../assets/shopify.png";
 import { Link } from "react-router-dom";
 
-type Feature = { id: string; label: string };
 
-const FEATURES: Feature[] = [
-  { id: "rebrand", label: "Store rebranding or launch" },
-  { id: "subs-design", label: "Subscriptions design" },
-  { id: "bundles", label: "Bundles" },
-  { id: "portal", label: "Customer Portal" },
-  { id: "upsells", label: "Upsells" },
-  { id: "subs-setup", label: "Subscriptions App setup optimisation" },
-];
 
 export default function Pricing() {
-  const [selected, setSelected] = useState<Record<string, boolean>>({});
-  const [estimate, setEstimate] = useState<number | null>(null);
-
-  const toggle = (id: string) => setSelected(s => ({ ...s, [id]: !s[id] }));
-  const calculate = () => {
-    const count = Object.values(selected).filter(Boolean).length;
-    setEstimate(count * 500);
-  };
 
   // contact form (similar to MerchantContactForm.tsx)
   const [form, setForm] = useState({ name: "", email: "", message: "" });
