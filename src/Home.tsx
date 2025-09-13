@@ -92,6 +92,9 @@ export default function App() {
         <img src={hero} width={450}/>
       </section>
       </div>
+           <section>
+        <Plans/>
+      </section>
       <section>
         <FeatureBlocks/>
       </section>
