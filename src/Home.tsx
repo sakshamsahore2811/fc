@@ -7,6 +7,7 @@ import hero from "./assets/hero.png";
 import hero2 from "./assets/hero2.png";
 import { Link } from "react-router-dom";
 import gem from "./assets/gem.png";
+import Plans from "./components/Plans";
 import shopify from "./assets/shopify.png";
 import ProcessFlow from "./components/ProcessFlow";
 import FloatingBubbles from "./components/FloatingBubbles";
