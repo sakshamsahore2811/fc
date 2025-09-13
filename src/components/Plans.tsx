@@ -63,7 +63,7 @@ const Plans: React.FC = () => {
                 ))}
               </ul>
               <button className="mt-6 w-full bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700 transition">
-                <a href="#contact">
+                <a href="https://calendly.com/forgecommerce-tutamail/30min" target="_blank">
                 {plan.button}
                 </a>
               </button>
