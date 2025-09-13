@@ -50,8 +50,8 @@ const Plans: React.FC = () => {
             >
               <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
               <p className="text-2xl font-bold text-blue-300 mb-4">
-                {plan.title=="Subscriptions PRO" && <><s>$100{" "}</s></>}
-                {plan.title=="Store Growth" && <><s>$200{" "}</s></>}
+     {plan.title=="Subscriptions PRO" && <div className="text-sm"><s>$100{" "}</s></div>}
+                {plan.title=="Store Growth" && <div className="text-sm"><s>$200{" "}</s></div>}
                 {plan.price}
               </p>
               <ul className="space-y-2 flex-1">
