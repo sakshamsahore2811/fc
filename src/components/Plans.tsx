@@ -3,7 +3,7 @@ import React from "react";
 const plans = [
   {
     title: "Subscriptions PRO",
-    price: "$49",
+    price: "$149",
     features: [
       "Set up subscriptions model",
       "Implement custom widget",
@@ -15,7 +15,7 @@ const plans = [
   },
   {
     title: "Store Growth",
-    price: "$89",
+    price: "$189",
     features: [
       "Everything in Subscriptions PRO plan",
       "Overall store design revamp",
@@ -50,8 +50,8 @@ const Plans: React.FC = () => {
             >
               <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
               <p className="text-2xl font-bold text-blue-300 mb-4">
-     {plan.title=="Subscriptions PRO" && <div className="text-sm"><s>$100{" "}</s></div>}
-                {plan.title=="Store Growth" && <div className="text-sm"><s>$200{" "}</s></div>}
+     {plan.title=="Subscriptions PRO" && <div className="text-sm"><s>$200{" "}</s></div>}
+                {plan.title=="Store Growth" && <div className="text-sm"><s>$300{" "}</s></div>}
                 {plan.price}
               </p>
               <ul className="space-y-2 flex-1">
